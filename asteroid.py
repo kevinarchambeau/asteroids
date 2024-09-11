@@ -2,7 +2,7 @@ import pygame
 import random
 
 from circleshape import CircleShape
-from constants import ASTEROID_MIN_RADIUS
+from constants import *
 
 
 class Asteroid(CircleShape):
@@ -12,7 +12,16 @@ class Asteroid(CircleShape):
         super().__init__(x, y, radius)
 
     def draw(self, screen):
-        pygame.draw.circle(screen, "blue", self.position, self.radius, 2)
+        medium = ASTEROID_MAX_RADIUS * .67
+        small = ASTEROID_MAX_RADIUS * .34
+        # roughly indicating asteroid size by color
+        if self.radius >= medium:
+            color = "red"
+        elif self.radius >= small:
+            color = "yellow"
+        else:
+            color = "blue"
+        pygame.draw.circle(screen, color, self.position, self.radius, 2)
 
     def update(self, dt):
         self.position += self.velocity * dt
