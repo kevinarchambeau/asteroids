@@ -1,4 +1,9 @@
-# asteroids
+# Asteroids
+
+A basic version of the classic asteroids game that uses pygame for rendering.
+
+Requirements:
+* Python 3.10+
 
 To run:
 
